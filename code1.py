@@ -2,8 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 
 #WEBSITES
-#WORLD NEWS 1: https://www.thehindu.com/news/international/
-#india news 2: https://www.thehindu.com/news/national/
+#WORLD NEWS: https://www.thehindu.com/news/international/
+#INDIA NEWS: https://www.thehindu.com/news/national/
 
 def get_th_titles(link):
     titles = []
@@ -14,7 +14,7 @@ def get_th_titles(link):
         class_name = tag.get("class")
         if class_name:
             if("title" in class_name):
-                titles.append(tag.text.replace("\n", ""))
+                titles.append(tag.text.replace("\n", "").strip())
     return titles
 
 WORLD_NEWS_LINK = 'https://www.thehindu.com/news/international/'
